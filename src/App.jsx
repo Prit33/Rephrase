@@ -11,8 +11,7 @@ function App() {
   const [copied, setCopied] = React.useState(false);
 
 
-  // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=8b3d0f09b53012e412694610b9d0a2cb`;
-  const url = `https://ai.webxspark.com/api/reword-me/rephrase?sentence=${sentence}&key=XFT3AW-7QHDZ7-JFK2TD-WXP-AI`;
+  const url = `https://ai.webxspark.com/api/reword-me/rephrase?sentence=${sentence}&key=${process.env.KEY}`;
 
   const onCopy = React.useCallback(() => {
     setCopied(true);
@@ -22,7 +21,7 @@ function App() {
 
   const rephrase = (event) => {
     axios.get(url).then((response) => {
-      setData(response.data.response.sentences)
+      // setData(response.data.response.sentences)
       console.log(response.data)
     })
     // setData(res.response.sentences);
